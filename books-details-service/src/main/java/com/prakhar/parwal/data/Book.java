@@ -1,10 +1,25 @@
 package com.prakhar.parwal.data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BOOK")
 public class Book {
 
+	@Id
+	@Column(name="ID")
 	private int id;
+	
+	@Column(name="NAME")
 	private String name;
+	
+	@Column(name="AUTHOR_NAME")
 	private String authorName;
+	
+	@Column(name="DESCRIPTION")
 	private String description;
 	
 	public Book() {
