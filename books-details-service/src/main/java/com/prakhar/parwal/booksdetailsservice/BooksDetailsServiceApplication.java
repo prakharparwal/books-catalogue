@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan("com.prakhar.parwal.controller.rest")
+@ComponentScan("com.prakhar.parwal.controller.rest, com.prakhar.parwal.service")
 @EntityScan("com.prakhar.parwal.data")
 @EnableJpaRepositories(basePackages = "com.prakhar.parwal.repositories")
 public class BooksDetailsServiceApplication {
