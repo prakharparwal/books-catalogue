@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,4 +35,10 @@ public class BookDetailController {
 		bookService.addBook(book);
 	}
 	
+	@GetMapping("/books-details-service/book/{bookName}")
+	public List<Book> getBooksByName(@PathVariable("bookName") String bookName) {
+
+		System.out.println(bookName);
+		return bookService.getBookByName(bookName);
+	}
 }
