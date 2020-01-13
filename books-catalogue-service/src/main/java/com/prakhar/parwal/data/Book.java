@@ -9,19 +9,19 @@ public class Book {
 	private String name;
 	private String authorName;
 	private String description;
-	private List<UserReviewData> userReviewData;
+	//private List<UserReviewData> userReviewData;
 	
 	public Book() {
 		super();
 	}
 	
-	public Book(int id, String name, String authorName, String description, List<UserReviewData> userReviewData) {
+	public Book(int id, String name, String authorName, String description/* , List<UserReviewData> userReviewData */) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.authorName = authorName;
 		this.description = description;
-		this.userReviewData = userReviewData;
+	//	this.userReviewData = userReviewData;
 	}
 
 	public int getId() {
@@ -57,18 +57,17 @@ public class Book {
 	}
 
 
-	public List<UserReviewData> getUserReviewData() {
-		return userReviewData;
-	}
+	/*
+	 * public List<UserReviewData> getUserReviewData() { return userReviewData; }
+	 * 
+	 * public void setUserReviewData(List<UserReviewData> userReviewData) {
+	 * this.userReviewData = userReviewData; }
+	 */
 
-	public void setUserReviewData(List<UserReviewData> userReviewData) {
-		this.userReviewData = userReviewData;
-	}
-
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", authorName=" + authorName + ", description=" + description
-				+ ", userReviewData=" + userReviewData + "]";
-	}
+	/*
+	 * @Override public String toString() { return "Book [id=" + id + ", name=" +
+	 * name + ", authorName=" + authorName + ", description=" + description +
+	 * ", userReviewData=" + userReviewData + "]"; }
+	 */
 	
 }
