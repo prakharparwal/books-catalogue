@@ -10,6 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.prakhar.parwal.data.Book;
+import com.prakhar.parwal.data.BookReviewData;
 
 @Controller
 public class BooksCatalogueController {
@@ -40,11 +41,13 @@ public class BooksCatalogueController {
 				.retrieve().toEntityList(Book.class).block().getBody();
 		
 		//Fetching book review details
-		/*
-		 * books.forEach((book) -> { book.setUserReviewData(webClientBuilder.build()
-		 * .get() .uri("http://localhost:8084/book-review/"+book.getId())
-		 * .retrieve().toEntityList(UserReviewData.class).block().getBody()); });
-		 */
+		
+		books.forEach((book) -> { book.setUserReviewData(webClientBuilder.build()
+		  .get()
+		  .uri("http://localhost:8084/book-review/"+book.getId())
+		  .retrieve().toEntityList(BookReviewData.class).block().getBody());
+			});
+		
 	
 		modelAndView.addObject("allBooks", books);
 		return modelAndView;

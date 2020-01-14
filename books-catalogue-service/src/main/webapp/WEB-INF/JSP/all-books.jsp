@@ -10,6 +10,14 @@
         	<div>
         		Book name: ${book.name} || Average Rating:<%--  ${book.rating}  --%> <!-- Check if rating is -1 then print "No
         																			rating given so far " -->
+        	
+        	<div>
+        	Rating: 
+        	<c:forEach items="{book.userReviewData}" var="bookReview">
+        	
+        	</c:forEach>
+        	</div>
+        	
         	</div>
         	
 		</c:forEach>

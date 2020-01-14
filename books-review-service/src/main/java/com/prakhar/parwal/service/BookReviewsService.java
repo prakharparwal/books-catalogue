@@ -20,8 +20,12 @@ public class BookReviewsService {
 		List<BookReviewData> reviewData = new ArrayList<BookReviewData>();
 		List<Integer> ids = new ArrayList<Integer>();
 		ids.add(bookId);
-		//bookReviewRepository.findAllById(ids).forEach(reviewData::add);
-		bookReviewRepository.findAll().forEach(reviewData::add);
+		
+		
+		System.out.println(bookId);
+		
+		bookReviewRepository.findAllById(ids).forEach(reviewData::add);
+	//	bookReviewRepository.findAll().forEach(reviewData::add);
 		return reviewData;
 	}
 	

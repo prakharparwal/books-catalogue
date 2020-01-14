@@ -9,7 +9,7 @@ public class Book {
 	private String name;
 	private String authorName;
 	private String description;
-	//private List<UserReviewData> userReviewData;
+	private List<BookReviewData> bookReviewData;
 	
 	public Book() {
 		super();
@@ -57,17 +57,18 @@ public class Book {
 	}
 
 
-	/*
-	 * public List<UserReviewData> getUserReviewData() { return userReviewData; }
-	 * 
-	 * public void setUserReviewData(List<UserReviewData> userReviewData) {
-	 * this.userReviewData = userReviewData; }
-	 */
+	
+	 public List<BookReviewData> getUserReviewData() { return bookReviewData; }
+	 
+	 public void setUserReviewData(List<BookReviewData> userReviewData) {
+		 this.bookReviewData = userReviewData; }
+	 
 
-	/*
-	 * @Override public String toString() { return "Book [id=" + id + ", name=" +
-	 * name + ", authorName=" + authorName + ", description=" + description +
-	 * ", userReviewData=" + userReviewData + "]"; }
-	 */
+
+	 @Override 
+	 public String toString() { return "Book [id=" + id + ", name=" +
+			 name + ", authorName=" + authorName + ", description=" + description +
+			 ", userReviewData=" + bookReviewData + "]"; }
+	
 	
 }
