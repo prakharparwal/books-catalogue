@@ -37,14 +37,14 @@ public class BooksCatalogueController {
 		//Books details service
 		List<Book> books = webClientBuilder.build()
 				.get()
-				.uri("http://localhost:8082/books-details-service/books")
+				.uri("http://books-details-service/books-details-service/books")
 				.retrieve().toEntityList(Book.class).block().getBody();
 		
 		//Fetching book review details
 		
 		books.forEach((book) -> { book.setUserReviewData(webClientBuilder.build()
 		  .get()
-		  .uri("http://localhost:8084/book-review/"+book.getId())
+		  .uri("http://books-review-service/book-review/"+book.getId())
 		  .retrieve().toEntityList(BookReviewData.class).block().getBody());
 			});
 		
