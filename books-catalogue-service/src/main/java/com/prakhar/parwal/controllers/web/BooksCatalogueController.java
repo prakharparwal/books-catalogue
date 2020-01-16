@@ -3,6 +3,7 @@ package com.prakhar.parwal.controllers.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.prakhar.parwal.data.Book;
 import com.prakhar.parwal.data.BookReviewData;
+
+import io.netty.channel.ChannelOption;
+import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.handler.timeout.WriteTimeoutHandler;
+import reactor.netty.http.client.HttpClient;
+import reactor.netty.tcp.TcpClient;
 
 @Controller
 public class BooksCatalogueController {
@@ -35,10 +42,11 @@ public class BooksCatalogueController {
 		modelAndView.setViewName("all-books");
 		
 		//Books details service
-		List<Book> books = webClientBuilder.build()
-				.get()
-				.uri("http://books-details-service/books-details-service/books")
-				.retrieve().toEntityList(Book.class).block().getBody();
+		List<Book> books = webClientBuilder
+								.build()
+								.get()
+								.uri("http://books-details-service/books-details-service/books")
+								.retrieve().toEntityList(Book.class).block().getBody();
 		
 		//Fetching book review details
 		
