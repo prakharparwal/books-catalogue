@@ -22,7 +22,7 @@ public class BookDetailController {
 	private BookService bookService;
 	
 	@GetMapping("/books-details-service/books")
-	public List<Book> getAllBooks() {
+	public List<Book> getAllBooks() throws InterruptedException {
 		
 		List<Book> books = new ArrayList<Book>();
 		books = bookService.getAllBooks();
