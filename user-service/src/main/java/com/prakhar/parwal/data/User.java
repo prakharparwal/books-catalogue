@@ -4,15 +4,17 @@ public class User {
 
 	private int id;
 	private String name;
+	private UserCredentials userCredentials;
 	
 	public User() {
 		super();
 	}
 	
-	public User(int id, String name) {
+	public User(int id, String name, UserCredentials userCredentials) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.userCredentials = userCredentials;
 	}
 	
 	public int getId() {
@@ -26,6 +28,14 @@ public class User {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public UserCredentials getUserCredentials() {
+		return userCredentials;
+	}
+
+	public void setUserCredentials(UserCredentials userCredentials) {
+		this.userCredentials = userCredentials;
 	}
 	
 }
