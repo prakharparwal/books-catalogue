@@ -1,20 +1,40 @@
 package com.prakhar.parwal.data;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="USERS")
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
 	private int id;
+	
+	@Column(name="NAME")
 	private String name;
-	private UserCredentials userCredentials;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "USER_CREDENTIAL_ID")
+	private UserCredentials userCredential;
 	
 	public User() {
 		super();
 	}
 	
-	public User(int id, String name, UserCredentials userCredentials) {
+	public User(int id, String name, UserCredentials userCredential) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.userCredentials = userCredentials;
+		this.userCredential = userCredential;
 	}
 	
 	public int getId() {
@@ -30,12 +50,12 @@ public class User {
 		this.name = name;
 	}
 
-	public UserCredentials getUserCredentials() {
-		return userCredentials;
+	public UserCredentials getUserCredential() {
+		return userCredential;
 	}
 
-	public void setUserCredentials(UserCredentials userCredentials) {
-		this.userCredentials = userCredentials;
+	public void setUserCredential(UserCredentials userCredential) {
+		this.userCredential = userCredential;
 	}
 	
 }

@@ -1,41 +1,67 @@
 package com.prakhar.parwal.data;
 
-public class UserCredentials {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	private int userId;
-	private String username;
-	private String password;
+@Entity
+@Table(name="USER_CREDENTIALS")
+public class UserCredentials {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
+	private int credentialId;
+	
+	@Column(name="USERNAME")
+	private String username;
+	
+	@Column(name="PASSWORD")
+	private String password;
+
+	public UserCredentials(int credentialId, String username, String password) {
+		super();
+		this.credentialId = credentialId;
+		this.username = username;
+		this.password = password;
+	}
+
 	public UserCredentials() {
 		super();
 	}
-	
-	public UserCredentials(int userId, String username, String password) {
-		super();
-		this.userId = userId;
-		this.username = username;
-		this.password = password;
+
+	public int getCredentialId() {
+		return credentialId;
 	}
-	
-	public int getUserId() {
-		return userId;
+
+	public void setCredentialId(int credentialId) {
+		this.credentialId = credentialId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "UserCredentials [credentialId=" + credentialId + ", username=" + username + ", password=" + password
+				+ "]";
+	}
+
 	
 }
